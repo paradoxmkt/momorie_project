@@ -8,14 +8,14 @@ export type QuizOption = {
 export type QuizScreen = {
   id: string;
   key: string;
-  type: 'welcome' | 'demographic' | 'single_choice' | 'self_assessment' | 'memory_intro' | 'color_sequence' | 'pattern_recall' | 'word_list';
+  type: 'welcome' | 'demographic' | 'single_choice' | 'self_assessment' | 'memory_intro' | 'color_sequence' | 'pattern_recall' | 'word_list' | 'number_sequence';
   order?: number;
   title: string;
   description?: string;
   question?: string;
   options?: string[] | QuizOption[];
   data?: {
-    sequence?: string[];
+    sequence?: string[] | number[];
     pattern?: boolean[][];
     words_to_memorize?: string[];
     all_words?: string[];

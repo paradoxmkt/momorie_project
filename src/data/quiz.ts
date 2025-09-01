@@ -172,16 +172,12 @@ export const quizData: QuizData = {
     },
     {
         id: 'memory_test_2',
-        key: 'pattern_recall_test',
-        type: 'pattern_recall',
+        key: 'number_sequence_test',
+        type: 'number_sequence',
         order: 20,
-        question: 'Memorize o padrão de quadrados.',
+        question: 'Memorize a sequência de números.',
         data: {
-            pattern: [
-                [true, false, false],
-                [false, true, true],
-                [true, false, false],
-            ]
+            sequence: [8, 2, 6, 4, 9, 1]
         }
     },
     {

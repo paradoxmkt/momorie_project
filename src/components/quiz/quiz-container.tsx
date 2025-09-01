@@ -8,7 +8,7 @@ import { DemographicScreen } from './screens/demographic-screen';
 import { ChoiceScreen } from './screens/choice-screen';
 import { MemoryIntroScreen } from './screens/memory-intro-screen';
 import { ColorSequenceScreen } from './screens/color-sequence-screen';
-import { PatternRecallScreen } from './screens/pattern-recall-screen';
+import { NumberSequenceScreen } from './screens/number-sequence-screen';
 import { WordListScreen } from './screens/word-list-screen';
 import { ResultsScreen } from './screens/results-screen';
 import { ProgressBar } from './progress-bar';
@@ -57,9 +57,9 @@ export function QuizContainer({ quiz }: { quiz: QuizData }) {
         return (
           <ColorSequenceScreen screen={screenData} onNext={(value) => handleNext(screenData.key, value)} />
         );
-      case 'pattern_recall':
+      case 'number_sequence':
         return (
-          <PatternRecallScreen screen={screenData} onNext={(value) => handleNext(screenData.key, value)} />
+          <NumberSequenceScreen screen={screenData} onNext={(value) => handleNext(screenData.key, value)} />
         );
       case 'word_list':
         return (
