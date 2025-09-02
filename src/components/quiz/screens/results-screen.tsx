@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect, useTransition } from 'react';
@@ -31,7 +32,7 @@ const SalesHeader = () => {
   return (
     <div className="fixed top-0 left-0 right-0 bg-primary text-primary-foreground text-center p-2 z-50 shadow-lg">
       <p className="font-bold text-sm sm:text-base">
-        OFERTA POR TEMPO LIMITADO: Libere seus resultados por apenas R$27,90! | Termina em: {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
+        OFERTA POR TEMPO LIMITADO: Libere seus resultados por apenas R$37,90! | Termina em: {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
       </p>
     </div>
   );
@@ -79,7 +80,7 @@ export function ResultsScreen({ answers, onReset }: ResultsScreenProps) {
   }, [answers]);
 
   const handlePurchaseClick = () => {
-    window.location.href = 'https://go.disruptybr.com.br/aw0c9xsnp3';
+    window.location.href = 'https://www.ggcheckout.com/checkout/v2/1pBP6PG0M22MLLd3AKhT';
   };
 
   if (isPending || !showSalesPage) {
@@ -134,7 +135,8 @@ export function ResultsScreen({ answers, onReset }: ResultsScreenProps) {
                     <p className="text-sm sm:text-base text-muted-foreground">Teste completo com análise + Material de exercícios.</p>
                   </div>
                   <div className="text-center md:text-right mt-4 md:mt-0">
-                    <p className="text-2xl sm:text-3xl font-bold text-foreground">Apenas R$27,90</p>
+                    <p className="text-lg sm:text-xl text-muted-foreground line-through">De R$74,90</p>
+                    <p className="text-2xl sm:text-3xl font-bold text-foreground">Por apenas R$37,90</p>
                   </div>
                 </Card>
                 
