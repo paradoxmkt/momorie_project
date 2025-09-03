@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 
-const LOCAL_STORAGE_KEY = 'mindmetrics-quiz-state';
+const LOCAL_STORAGE_KEY = 'desafio-mindfulness-quiz-state';
 
 type QuizState = {
   currentScreenIndex: number;

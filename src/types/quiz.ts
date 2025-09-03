@@ -19,6 +19,7 @@ export type QuizScreen = {
     pattern?: boolean[][];
     words_to_memorize?: string[];
     all_words?: string[];
+    reversed?: boolean;
   };
   buttonText?: string;
 };

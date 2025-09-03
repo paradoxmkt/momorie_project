@@ -7,35 +7,11 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Loader2, RefreshCw, AlertTriangle, ShieldCheck, Star, Sparkles } from 'lucide-react';
 import type { PersonalizedFeedbackOutput } from '@/ai/flows/personalized-cognitive-feedback';
+import Image from 'next/image';
 
 type ResultsScreenProps = {
   answers: Record<string, any>;
   onReset: () => void;
-};
-
-const SalesHeader = () => {
-  const [timeLeft, setTimeLeft] = useState(300); // 5 minutes in seconds
-
-  useEffect(() => {
-    if (timeLeft <= 0) return;
-
-    const timer = setInterval(() => {
-      setTimeLeft((prevTime) => prevTime - 1);
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [timeLeft]);
-
-  const minutes = Math.floor(timeLeft / 60);
-  const seconds = timeLeft % 60;
-
-  return (
-    <div className="fixed top-0 left-0 right-0 bg-primary text-primary-foreground text-center p-2 z-50 shadow-lg">
-      <p className="font-bold text-sm sm:text-base">
-        OFERTA POR TEMPO LIMITADO: Libere seus resultados por apenas R$37,90! | Termina em: {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
-      </p>
-    </div>
-  );
 };
 
 const FeedbackCard = ({ name, feedback }: { name: string, feedback: string }) => (
@@ -114,20 +90,51 @@ export function ResultsScreen({ answers, onReset }: ResultsScreenProps) {
   if (showSalesPage) {
     return (
       <>
-        {showSalesContent && <SalesHeader />}
-        <div className={`w-full max-h-[calc(100vh-80px)] overflow-y-auto ${showSalesContent ? 'pt-12 sm:pt-16' : 'pt-0'} pb-8 px-4 scroll-smooth`}>
+        <div className={`w-full max-h-[calc(100vh-80px)] overflow-y-auto pb-8 px-4 scroll-smooth`}>
           <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
             
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mt-8 mb-4">
-              Seu resultado esta pronto, assista o video do Dr. Pedro para conferir!
-            </h2>
+            <div className='my-8'>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mb-4">Seus resultados já estão prontos!</h1>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
+                Assista ao vídeo do Dr Pedro. Para receber seu Diagnóstico
+              </h2>
+              <p className="text-lg sm:text-xl font-semibold text-primary mt-2">Clique no vídeo abaixo!</p>
+            </div>
+
             <div className="w-full aspect-video rounded-lg overflow-hidden shadow-2xl mb-6">
-                 <iframe title="vimeo-player" src="https://player.vimeo.com/video/1110748968?h=c596470233&autoplay=1" width="100%" height="100%" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowFullScreen></iframe>
+                 <iframe title="vsl-player" src="https://scripts.converteai.net/49e49b5a-7f96-4496-a558-b79b746b2848/players/68b834f57f273c21363c9b6c/v4/embed.html" width="100%" height="100%" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowFullScreen></iframe>
             </div>
             
             {showSalesContent && (
               <>
-                <h3 className="text-xl sm:text-2xl font-bold mb-4">Seus resultados de memória e foco</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-4">Receba hoje o seus resultado e o material exclusivo com técnicas e exercícios mentais</h3>
+                
+                <div className="w-full max-w-3xl my-4 rounded-lg overflow-hidden shadow-2xl">
+                  <Image
+                    src="https://i.imgur.com/OIjMFzd.png"
+                    alt="Gráfico de exemplo dos resultados do teste de memória e foco"
+                    width={800}
+                    height={557}
+                    layout="responsive"
+                    data-ai-hint="results chart"
+                  />
+                </div>
+
+                <div className="w-full max-w-3xl my-4 rounded-lg overflow-hidden shadow-2xl">
+                  <Image
+                    src="https://i.imgur.com/VYNUjMT.png"
+                    alt="Exemplo de material de exercícios de memória"
+                    width={800}
+                    height={418}
+                    layout="responsive"
+                    data-ai-hint="exercise material"
+                  />
+                </div>
+
+                <div className="my-6">
+                    <h3 className="text-xl sm:text-2xl font-bold">Pegue seu material e o resultado detalhado do teste aqui.</h3>
+                    <p className="text-md text-muted-foreground mt-1">Oferta por tempo limitada!</p>
+                </div>
 
                 <Card className="w-full max-w-2xl my-8 flex flex-col md:flex-row items-center justify-between p-4 sm:p-6 shadow-xl border-primary border-2">
                   <div className="text-center md:text-left">
@@ -171,6 +178,10 @@ export function ResultsScreen({ answers, onReset }: ResultsScreenProps) {
                     </CardContent>
                 </Card>
 
+                <Button size="lg" className="w-full max-w-2xl h-14 sm:h-16 text-xl sm:text-2xl font-bold my-8" onClick={handlePurchaseClick}>
+                    Quero cuidar da minha Mente!
+                </Button>
+
                 <Card className="w-full max-w-2xl my-8 text-left p-4 sm:p-6 border-green-600 border-2">
                   <CardHeader className="flex flex-col sm:flex-row items-center gap-4 p-2 sm:p-4">
                       <ShieldCheck className="w-12 h-12 text-green-600 shrink-0"/>
@@ -197,7 +208,7 @@ export function ResultsScreen({ answers, onReset }: ResultsScreenProps) {
 
           </div>
            <footer className="w-full text-center text-muted-foreground mt-12 border-t pt-4 text-sm">
-                <p>&copy; {new Date().getFullYear()} MindMetrics. Todos os direitos reservados.</p>
+                <p>&copy; {new Date().getFullYear()} Desafio Mindfulness. Todos os direitos reservados.</p>
             </footer>
         </div>
       </>
@@ -206,3 +217,5 @@ export function ResultsScreen({ answers, onReset }: ResultsScreenProps) {
 
   return null;
 }
+
+    

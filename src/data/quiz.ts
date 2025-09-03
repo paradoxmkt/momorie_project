@@ -152,10 +152,50 @@ export const quizData: QuizData = {
       options: ['Quase sempre', 'Às vezes', 'Raramente'],
     },
     {
+      id: 'question_new_1',
+      key: 'concentrate_on_task',
+      type: 'self_assessment',
+      order: 18,
+      question: 'Quando você se senta para realizar uma tarefa, quão fácil é para você começar e manter o foco?',
+      options: ['Muito fácil, eu mergulho de cabeça', 'Leva um tempo para engrenar', 'Eu procastino e me distraio facilmente'],
+    },
+    {
+      id: 'question_new_2',
+      key: 'remember_new_info',
+      type: 'self_assessment',
+      order: 19,
+      question: 'Ao ser apresentado a novas informações (por exemplo, em uma reunião ou aula), quanto você retém sem precisar tomar notas extensivas?',
+      options: ['Retenho a maior parte', 'Retenho os pontos principais, mas esqueço detalhes', 'Luto para lembrar da maior parte'],
+    },
+    {
+      id: 'question_new_3',
+      key: 'focus_noisy_env',
+      type: 'self_assessment',
+      order: 20,
+      question: 'Como você avalia sua capacidade de se concentrar em uma tarefa em um ambiente barulhento ou com muitas distrações?',
+      options: ['Consigo me isolar e focar', 'É um desafio, mas consigo', 'Acho quase impossível me concentrar'],
+    },
+    {
+      id: 'question_new_4',
+      key: 'info_overload',
+      type: 'self_assessment',
+      order: 21,
+      question: 'Com que frequência você se sente sobrecarregado por excesso de informações, resultando em dificuldade para tomar decisões ou se lembrar de coisas?',
+      options: ['Raramente', 'Ocasionalmente', 'Frequentemente'],
+    },
+    {
+      id: 'question_new_5',
+      key: 'recall_recent_conversations',
+      type: 'self_assessment',
+      order: 22,
+      question: 'Quão bem você se lembra dos detalhes de conversas que teve nos últimos dias?',
+      options: ['Lembro-me muito bem', 'Lembro-me do essencial, mas não dos detalhes', 'Muitas vezes esqueço o que foi dito'],
+    },
+    {
       id: 'screen_final',
       key: 'memory_game_intro',
       type: 'memory_intro',
-      order: 18,
+      order: 23,
       title: 'Vamos testar sua memória!',
       description: 'Agora, vamos para alguns exercícios práticos. Prepare-se para testar sua memória visual e de curto prazo. Vamos começar?',
       buttonText: 'Estou pronto!',
@@ -164,7 +204,7 @@ export const quizData: QuizData = {
         id: 'memory_test_1',
         key: 'color_sequence_test',
         type: 'color_sequence',
-        order: 19,
+        order: 24,
         question: 'Memorize a sequência de cores.',
         data: {
             sequence: ['red', 'blue', 'green', 'yellow']
@@ -174,7 +214,7 @@ export const quizData: QuizData = {
         id: 'memory_test_2',
         key: 'number_sequence_test',
         type: 'number_sequence',
-        order: 20,
+        order: 25,
         question: 'Memorize a sequência de números.',
         data: {
             sequence: [8, 2, 6, 4, 9, 1]
@@ -184,7 +224,7 @@ export const quizData: QuizData = {
         id: 'memory_test_3',
         key: 'word_list_test',
         type: 'word_list',
-        order: 21,
+        order: 26,
         question: 'Memorize a lista de palavras.',
         data: {
             words_to_memorize: ['casa', 'árvore', 'rio', 'sol', 'livro', 'lua'],

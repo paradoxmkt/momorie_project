@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 const resetQuizState = () => {
   if (typeof window !== 'undefined') {
     try {
-      window.localStorage.removeItem('mindmetrics-quiz-state');
+      window.localStorage.removeItem('desafio-mindfulness-quiz-state');
     } catch (error) {
       console.error("Failed to remove quiz state from localStorage", error);
     }
@@ -35,41 +35,6 @@ export default function Home() {
           Quão aguçado está o seu cérebro? Faça nosso teste desenvolvido por especialistas para avaliar sua clareza mental, concentração e memória. Descubra como seu cérebro se comporta sob pressão e receba um roteiro personalizado para atingir o desempenho cognitivo máximo.
         </p>
         
-        <Card className="text-left mb-8 bg-card/80 backdrop-blur-sm">
-          <CardHeader>
-            <CardTitle className="text-xl sm:text-2xl">O que esperar</CardTitle>
-          </CardHeader>
-          <CardContent className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div className="flex items-start space-x-4">
-              <div className="p-2 bg-primary/10 rounded-full">
-                <HelpCircle className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-base sm:text-lg">Total de Questões</h3>
-                <p className="text-sm text-muted-foreground">20 perguntas</p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-4">
-              <div className="p-2 bg-primary/10 rounded-full">
-                <Clock className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-base sm:text-lg">Tempo Estimado</h3>
-                <p className="text-sm text-muted-foreground">5-7 minutos</p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-4">
-              <div className="p-2 bg-primary/10 rounded-full">
-                <BrainCircuit className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-base sm:text-lg">Feedback com IA</h3>
-                <p className="text-sm text-muted-foreground">Análise personalizada</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
         <Button asChild size="lg" className="rounded-full font-bold text-lg px-8 sm:px-10 py-6 sm:py-7 group shadow-lg shadow-primary/20 hover:shadow-accent/30 transition-all duration-300 transform hover:scale-105">
           <Link href="/quiz">
             Começar o Teste

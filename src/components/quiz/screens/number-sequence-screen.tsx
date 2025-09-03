@@ -1,3 +1,4 @@
+
 'use client';
 
 import type { QuizScreen } from '@/types/quiz';
@@ -17,7 +18,14 @@ export function NumberSequenceScreen({ screen, onNext }: NumberSequenceScreenPro
   const [phase, setPhase] = useState<'memorize' | 'recall'>('memorize');
   const [countdown, setCountdown] = useState(MEMORIZE_DURATION);
   const [userAnswer, setUserAnswer] = useState('');
-  const correctSequence = useMemo(() => (screen.data?.sequence as number[] || []).join(''), [screen.data]);
+  
+  const sequence = useMemo(() => screen.data?.sequence as number[] || [], [screen.data]);
+  const isReversed = useMemo(() => screen.data?.reversed || false, [screen.data]);
+  
+  const correctSequence = useMemo(() => {
+    const seq = sequence.join('');
+    return isReversed ? seq.split('').reverse().join('') : seq;
+  }, [sequence, isReversed]);
 
   useEffect(() => {
     if (phase === 'memorize') {
@@ -51,19 +59,22 @@ export function NumberSequenceScreen({ screen, onNext }: NumberSequenceScreenPro
           <div className="w-full max-w-sm mx-auto space-y-4">
              <div className="bg-card p-4 rounded-lg shadow-inner">
                 <p className="text-3xl sm:text-4xl font-mono tracking-widest text-primary">
-                    {correctSequence.split('').join(' ')}
+                    {sequence.join(' ')}
                 </p>
              </div>
             <div className="space-y-2">
               <p className="text-2xl font-bold font-mono text-primary">{countdown}</p>
               <Progress value={(countdown / MEMORIZE_DURATION) * 100} className="h-2" />
             </div>
+            <Button variant="link" size="sm" onClick={() => setPhase('recall')} className="mt-2 text-muted-foreground">Pular Cronômetro</Button>
           </div>
         </>
       ) : (
         <>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-headline text-foreground mb-4">Qual era a sequência?</h2>
-          <p className="text-muted-foreground mb-8">Digite os números na ordem em que apareceram.</p>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-headline text-foreground mb-4">
+            {isReversed ? 'Qual era a sequência invertida?' : 'Qual era a sequência?'}
+          </h2>
+          <p className="text-muted-foreground mb-8 text-sm sm:text-base">Digite os números na ordem correta.</p>
           <Input
             type="text"
             value={userAnswer}

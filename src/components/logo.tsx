@@ -16,7 +16,7 @@ export default function Logo({ className, iconOnly = false }: LogoProps) {
     >
       <BrainCircuit className="h-8 w-8" />
       {!iconOnly && (
-        <span className="text-2xl font-bold">MindMetrics</span>
+        <span className="text-2xl font-bold">Desafio Mindfulness</span>
       )}
     </div>
   );
