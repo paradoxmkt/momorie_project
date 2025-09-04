@@ -98,7 +98,10 @@ export function ColorSequenceScreen({ screen, onNext }: ColorSequenceScreenProps
                  <p className="text-2xl font-bold font-mono text-primary">{countdown}</p>
                  <Progress value={(countdown / MEMORIZE_DURATION) * 100} className="h-2" />
                </div>
-               <Button variant="link" size="sm" onClick={() => setPhase('recall')} className="mt-2 text-muted-foreground">Pular Cronômetro</Button>
+               <Button variant="outline" size="sm" onClick={() => setPhase('recall')} className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90">
+                <Check className="mr-2 h-4 w-4" />
+                Já memorizei
+              </Button>
             </div>
           </>
         );
