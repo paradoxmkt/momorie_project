@@ -145,9 +145,9 @@ export function ResultsScreen({ answers, onReset }: ResultsScreenProps) {
                       <p>de exercícios</p>
                     </div>
                     <div className="text-center mt-4 md:mt-0">
-                      <p className="text-lg text-destructive line-through">De R$37,90</p>
+                      <p className="text-lg text-destructive line-through">De R$74,90</p>
                       <p className="text-sm text-green-700 -mt-1">por apenas</p>
-                      <p className="text-3xl font-bold text-green-900">R$19,90</p>
+                      <p className="text-3xl font-bold text-green-900">R$37,90</p>
                     </div>
                   </div>
                 </div>
@@ -222,3 +222,5 @@ export function ResultsScreen({ answers, onReset }: ResultsScreenProps) {
 
   return null;
 }
+
+    
