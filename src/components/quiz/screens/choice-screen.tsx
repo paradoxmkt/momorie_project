@@ -1,8 +1,8 @@
+
 'use client';
 
 import type { QuizScreen as QuizScreenType } from '@/types/quiz';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 
 type ChoiceScreenProps = {
   screen: QuizScreenType;
@@ -19,18 +19,21 @@ export function ChoiceScreen({ screen, onNext }: ChoiceScreenProps) {
         {screen.options?.map((option, index) => {
           const optionText = typeof option === 'string' ? option : option.text;
           return (
-            <Button
+            <button
               key={index}
-              variant="outline"
-              size="lg"
-              className="w-full justify-start text-left h-auto py-3 sm:py-4 text-sm sm:text-base bg-card hover:bg-primary/10 hover:border-primary border-2"
+              className={cn(
+                'w-full text-left h-auto py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base rounded-lg transition-colors',
+                'flex items-center justify-between',
+                'bg-primary text-primary-foreground',
+                'hover:bg-accent'
+              )}
               onClick={() => onNext(optionText)}
             >
-              <span className="bg-primary/20 text-primary font-bold rounded-md size-8 flex items-center justify-center mr-3 sm:mr-4 shrink-0">
-                {String.fromCharCode(65 + index)}
-              </span>
-              <span className="flex-1 whitespace-normal">{optionText}</span>
-            </Button>
+              <span className="flex-1 whitespace-normal font-medium">{optionText}</span>
+              <div className="ml-4 size-6 rounded-full border-2 border-primary-foreground/50 bg-transparent flex items-center justify-center shrink-0">
+                <div className="size-3 rounded-full bg-transparent"></div>
+              </div>
+            </button>
           );
         })}
       </div>

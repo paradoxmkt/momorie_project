@@ -1,5 +1,19 @@
 
-import type { QuizData } from '@/types/quiz';
+import type { QuizData, Shape } from '@/types/quiz';
+
+const generateGrid = (rows: number, cols: number, starPosition?: {row: number, col: number}): Shape[][] => {
+    const grid: Shape[][] = Array(rows).fill(null).map(() => Array(cols).fill('circle'));
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+            grid[r][c] = Math.random() > 0.5 ? 'circle' : 'triangle';
+        }
+    }
+    if (starPosition) {
+        grid[starPosition.row][starPosition.col] = 'star';
+    }
+    return grid;
+};
+
 
 export const quizData: QuizData = {
   id: 'memory_focus_test',
@@ -25,90 +39,10 @@ export const quizData: QuizData = {
       options: ['Homem', 'Mulher'],
     },
     {
-      id: 'screen_2',
-      key: 'memory_training_experience',
-      type: 'single_choice',
-      order: 2,
-      question: 'Você já treinou sua mente com jogos de memória?',
-      options: ['Sim', 'Não', 'Não sei'],
-    },
-    {
-      id: 'question_1',
-      key: 'forgot_known_word',
-      type: 'self_assessment',
-      order: 3,
-      question: 'Com que frequência você esquece uma palavra conhecida da qual normalmente se lembra?',
-      options: ['Frequentemente', 'Às vezes', 'Quase nunca'],
-    },
-     {
-      id: 'question_additional_1',
-      key: 'remember_appointments',
-      type: 'self_assessment',
-      order: 4,
-      question: 'Você se lembra de compromissos e datas importantes sem precisar de lembretes?',
-      options: ['Quase sempre', 'Às vezes', 'Raramente'],
-    },
-    {
-      id: 'question_2',
-      key: 'forgot_names',
-      type: 'self_assessment',
-      order: 5,
-      question: 'Com que frequência você esquece os nomes das pessoas que acabou de conhecer?',
-      options: ['Frequentemente', 'Às vezes', 'Raramente'],
-    },
-     {
-      id: 'question_additional_2',
-      key: 'multitasking_difficulty',
-      type: 'self_assessment',
-      order: 6,
-      question: 'Como você avalia sua capacidade de realizar várias tarefas ao mesmo tempo?',
-      options: ['Muito boa', 'Razoável', 'Tenho dificuldade'],
-    },
-    {
-      id: 'question_3',
-      key: 'recall_yesterday_lunch',
-      type: 'self_assessment',
-      order: 7,
-      question: 'Você consegue se lembrar do que comeu no almoço de ontem?',
-      options: ['Sim, claramente', 'Tenho uma vaga ideia', 'Não, de jeito nenhum'],
-    },
-    {
-      id: 'question_additional_3',
-      key: 'remember_shopping_list',
-      type: 'self_assessment',
-      order: 8,
-      question: 'Ao ir às compras, com que frequência você se lembra de todos os itens sem uma lista?',
-      options: ['Quase sempre', 'Às vezes', 'Raramente ou nunca'],
-    },
-    {
-      id: 'question_4',
-      key: 'losing_train_of_thought',
-      type: 'self_assessment',
-      order: 9,
-      question: 'Com que frequência você perde o fio da meada durante uma conversa?',
-      options: ['Frequentemente', 'Ocasionalmente', 'Raramente ou nunca'],
-    },
-    {
-      id: 'question_additional_4',
-      key: 'remember_movie_details',
-      type: 'self_assessment',
-      order: 10,
-      question: 'Depois de assistir a um filme, quão bem você se lembra dos detalhes da trama?',
-      options: ['Muito bem', 'Razoavelmente', 'Esqueço rapidamente'],
-    },
-    {
-      id: 'question_5',
-      key: 'misplacing_items',
-      type: 'self_assessment',
-      order: 11,
-      question: 'Com que frequência você perde objetos como chaves ou celular?',
-      options: ['Diariamente', 'Algumas vezes por semana', 'Raramente'],
-    },
-    {
       id: 'question_additional_5',
       key: 'remember_instructions',
       type: 'self_assessment',
-      order: 12,
+      order: 2,
       question: 'Com que frequência você precisa que instruções ou informações sejam repetidas?',
       options: ['Frequentemente', 'Ocasionalmente', 'Raramente'],
     },
@@ -116,7 +50,7 @@ export const quizData: QuizData = {
       id: 'question_6',
       key: 'difficulty_concentrating',
       type: 'self_assessment',
-      order: 13,
+      order: 3,
       question: 'Ao ler um livro ou artigo, com que frequência você precisa reler um parágrafo por não ter absorvido a informação?',
       options: ['Quase sempre', 'Às vezes', 'Quase nunca'],
     },
@@ -124,7 +58,7 @@ export const quizData: QuizData = {
       id: 'question_additional_6',
       key: 'energy_levels',
       type: 'self_assessment',
-      order: 14,
+      order: 4,
       question: 'Como você descreveria seus níveis de energia mental ao longo do dia?',
       options: ['Estáveis e altos', 'Flutuam bastante', 'Geralmente baixos'],
     },
@@ -132,7 +66,7 @@ export const quizData: QuizData = {
       id: 'question_additional_7',
       key: 'recalling_past_events',
       type: 'self_assessment',
-      order: 15,
+      order: 5,
       question: 'Quão bem você se lembra de eventos que aconteceram há mais de um ano?',
       options: ['Lembro-me de detalhes vívidos', 'Lembro-me dos aspectos gerais', 'Minhas lembranças são vagas'],
     },
@@ -140,7 +74,7 @@ export const quizData: QuizData = {
       id: 'question_additional_8',
       key: 'distracted_by_environment',
       type: 'self_assessment',
-      order: 16,
+      order: 6,
       question: 'Com que facilidade você se distrai com o que está acontecendo ao seu redor?',
       options: ['Muito facilmente', 'Depende da situação', 'Raramente me distraio'],
     },
@@ -148,7 +82,7 @@ export const quizData: QuizData = {
       id: 'question_additional_9',
       key: 'mental_fatigue',
       type: 'self_assessment',
-      order: 17,
+      order: 7,
       question: 'Com que frequência você sente fadiga mental após tarefas que exigem concentração?',
       options: ['Quase sempre', 'Às vezes', 'Raramente'],
     },
@@ -156,7 +90,7 @@ export const quizData: QuizData = {
       id: 'question_new_1',
       key: 'concentrate_on_task',
       type: 'self_assessment',
-      order: 18,
+      order: 8,
       question: 'Quando você se senta para realizar uma tarefa, quão fácil é para você começar e manter o foco?',
       options: ['Muito fácil, eu mergulho de cabeça', 'Leva um tempo para engrenar', 'Eu procastino e me distraio facilmente'],
     },
@@ -164,7 +98,7 @@ export const quizData: QuizData = {
       id: 'question_new_2',
       key: 'remember_new_info',
       type: 'self_assessment',
-      order: 19,
+      order: 9,
       question: 'Ao ser apresentado a novas informações (por exemplo, em uma reunião ou aula), quanto você retém sem precisar tomar notas extensivas?',
       options: ['Retenho a maior parte', 'Retenho os pontos principais, mas esqueço detalhes', 'Luto para lembrar da maior parte'],
     },
@@ -172,7 +106,7 @@ export const quizData: QuizData = {
       id: 'question_new_3',
       key: 'focus_noisy_env',
       type: 'self_assessment',
-      order: 20,
+      order: 10,
       question: 'Como você avalia sua capacidade de se concentrar em uma tarefa em um ambiente barulhento ou com muitas distrações?',
       options: ['Consigo me isolar e focar', 'É um desafio, mas consigo', 'Acho quase impossível me concentrar'],
     },
@@ -180,7 +114,7 @@ export const quizData: QuizData = {
       id: 'question_new_4',
       key: 'info_overload',
       type: 'self_assessment',
-      order: 21,
+      order: 11,
       question: 'Com que frequência você se sente sobrecarregado por excesso de informações, resultando em dificuldade para tomar decisões ou se lembrar de coisas?',
       options: ['Raramente', 'Ocasionalmente', 'Frequentemente'],
     },
@@ -188,7 +122,7 @@ export const quizData: QuizData = {
       id: 'question_new_5',
       key: 'recall_recent_conversations',
       type: 'self_assessment',
-      order: 22,
+      order: 12,
       question: 'Quão bem você se lembra dos detalhes de conversas que teve nos últimos dias?',
       options: ['Lembro-me muito bem', 'Lembro-me do essencial, mas não dos detalhes', 'Muitas vezes esqueço o que foi dito'],
     },
@@ -196,7 +130,7 @@ export const quizData: QuizData = {
       id: 'screen_final',
       key: 'memory_game_intro',
       type: 'memory_intro',
-      order: 23,
+      order: 13,
       title: 'Vamos testar sua memória!',
       description: 'Agora, vamos para alguns exercícios práticos. Prepare-se para testar sua memória visual e de curto prazo. Vamos começar?',
       buttonText: 'Estou pronto!',
@@ -205,7 +139,7 @@ export const quizData: QuizData = {
         id: 'memory_test_1',
         key: 'color_sequence_test',
         type: 'color_sequence',
-        order: 24,
+        order: 14,
         question: 'Memorize a sequência de cores.',
         data: {
             sequence: ['red', 'blue', 'green', 'yellow']
@@ -215,7 +149,7 @@ export const quizData: QuizData = {
         id: 'memory_test_2',
         key: 'number_sequence_test',
         type: 'number_sequence',
-        order: 25,
+        order: 15,
         question: 'Memorize a sequência de números.',
         data: {
             sequence: [8, 2, 6, 4, 9, 1]
@@ -225,7 +159,7 @@ export const quizData: QuizData = {
         id: 'memory_test_3',
         key: 'word_list_test',
         type: 'word_list',
-        order: 26,
+        order: 16,
         question: 'Memorize a lista de palavras.',
         data: {
             words_to_memorize: ['casa', 'árvore', 'rio', 'sol', 'livro', 'lua'],
@@ -236,7 +170,7 @@ export const quizData: QuizData = {
         id: 'memory_test_4',
         key: 'pattern_recall_test',
         type: 'pattern_recall',
-        order: 27,
+        order: 17,
         question: 'Memorize o padrão.',
         data: {
             gridSize: 3,
@@ -251,12 +185,46 @@ export const quizData: QuizData = {
         id: 'memory_test_5',
         key: 'color_sequence_test_reversed',
         type: 'color_sequence',
-        order: 28,
+        order: 18,
         question: 'Memorize a sequência de cores e recorde-a na ordem inversa.',
         data: {
             sequence: ['purple', 'orange', 'cyan', 'pink'],
             reversed: true
         }
+    },
+    {
+      id: 'memory_test_6',
+      key: 'visual_match_test',
+      type: 'visual_match',
+      order: 19,
+      title: 'Memorize as imagens rapidamente',
+      description: 'Você tem 10 segundos para memorizar',
+      data: {
+        visualMatch: {
+          gridSize: { rows: 3, cols: 4 },
+          leftGrid: generateGrid(3, 4),
+          rightGrid: generateGrid(3, 4, {row: 1, col: 2}),
+          correctSide: 'right',
+          memorizeDuration: 10,
+        }
+      }
+    },
+    {
+      id: 'memory_test_7',
+      key: 'visual_match_test_2',
+      type: 'visual_match',
+      order: 20,
+      title: 'Memorize as imagens novamente',
+      description: 'Encontre a forma única. Você tem 8 segundos.',
+      data: {
+        visualMatch: {
+          gridSize: { rows: 3, cols: 4 },
+          leftGrid: generateGrid(3, 4, {row: 2, col: 1}),
+          rightGrid: generateGrid(3, 4),
+          correctSide: 'left',
+          memorizeDuration: 8,
+        }
+      }
     }
   ],
 };

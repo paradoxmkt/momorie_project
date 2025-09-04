@@ -107,8 +107,6 @@ export function ResultsScreen({ answers, onReset }: ResultsScreenProps) {
             
             {showSalesContent && (
               <>
-                <h3 className="text-xl sm:text-2xl font-bold mb-4">Receba hoje o seus resultado e o material exclusivo com técnicas e exercícios mentais</h3>
-                
                 <div className="w-full max-w-3xl my-4 rounded-lg overflow-hidden shadow-2xl">
                   <Image
                     src="https://i.imgur.com/OIjMFzd.png"
@@ -130,24 +128,31 @@ export function ResultsScreen({ answers, onReset }: ResultsScreenProps) {
                     data-ai-hint="exercise material"
                   />
                 </div>
-
-                <div className="my-6">
+                
+                <div className="my-6 text-center">
                     <h3 className="text-xl sm:text-2xl font-bold">Pegue seu material e o resultado detalhado do teste aqui.</h3>
                     <p className="text-md text-muted-foreground mt-1">Oferta por tempo limitada!</p>
                 </div>
-
-                <Card className="w-full max-w-2xl my-8 flex flex-col md:flex-row items-center justify-between p-4 sm:p-6 shadow-xl border-primary border-2">
-                  <div className="text-center md:text-left">
-                    <h4 className="text-xl sm:text-2xl font-bold text-primary">Acesso Completo</h4>
-                    <p className="text-sm sm:text-base text-muted-foreground">Teste completo com análise + Material de exercícios.</p>
-                  </div>
-                  <div className="text-center md:text-right mt-4 md:mt-0">
-                    <p className="text-lg sm:text-xl text-muted-foreground line-through">De R$74,90</p>
-                    <p className="text-2xl sm:text-3xl font-bold text-foreground">Por apenas R$37,90</p>
-                  </div>
-                </Card>
                 
-                <Button size="lg" className="w-full max-w-2xl h-14 sm:h-16 text-xl sm:text-2xl font-bold animate-pulse" onClick={handlePurchaseClick}>
+                <div className="w-full max-w-2xl my-8">
+                  <div className="bg-primary/80 text-primary-foreground text-center font-bold py-2 rounded-t-lg">
+                    Oportunidade Única!
+                  </div>
+                  <div className="bg-green-100/50 flex flex-col md:flex-row items-center justify-between p-4 sm:p-6 rounded-b-lg border-2 border-primary/50 shadow-lg">
+                    <div className="text-center md:text-left text-green-800 font-semibold text-lg">
+                      <p>Acesso completo, teste</p>
+                      <p>completo com análise + Material</p>
+                      <p>de exercícios</p>
+                    </div>
+                    <div className="text-center mt-4 md:mt-0">
+                      <p className="text-lg text-destructive line-through">De R$37,90</p>
+                      <p className="text-sm text-green-700 -mt-1">por apenas</p>
+                      <p className="text-3xl font-bold text-green-900">R$19,90</p>
+                    </div>
+                  </div>
+                </div>
+
+                <Button size="lg" className="w-full max-w-2xl h-14 sm:h-16 text-xl sm:text-2xl font-bold animate-pulse bg-green-600 hover:bg-green-700 text-white" onClick={handlePurchaseClick}>
                     Adquirir Agora!
                 </Button>
 
@@ -178,7 +183,7 @@ export function ResultsScreen({ answers, onReset }: ResultsScreenProps) {
                     </CardContent>
                 </Card>
 
-                <Button size="lg" className="w-full max-w-2xl h-14 sm:h-16 text-xl sm:text-2xl font-bold my-8" onClick={handlePurchaseClick}>
+                <Button size="lg" className="w-full max-w-2xl h-14 sm:h-16 text-xl sm:text-2xl font-bold my-8 bg-green-600 hover:bg-green-700 text-white" onClick={handlePurchaseClick}>
                     Quero cuidar da minha Mente!
                 </Button>
 
@@ -195,7 +200,7 @@ export function ResultsScreen({ answers, onReset }: ResultsScreenProps) {
                   </CardContent>
                 </Card>
 
-                 <Button size="lg" className="w-full max-w-2xl h-14 sm:h-16 text-xl sm:text-2xl font-bold" onClick={handlePurchaseClick}>
+                 <Button size="lg" className="w-full max-w-2xl h-14 sm:h-16 text-xl sm:text-2xl font-bold bg-green-600 hover:bg-green-700 text-white" onClick={handlePurchaseClick}>
                     Eu quero!
                 </Button>
                 
@@ -217,5 +222,3 @@ export function ResultsScreen({ answers, onReset }: ResultsScreenProps) {
 
   return null;
 }
-
-    

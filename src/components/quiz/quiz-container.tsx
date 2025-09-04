@@ -12,6 +12,7 @@ import { ColorSequenceScreen } from './screens/color-sequence-screen';
 import { NumberSequenceScreen } from './screens/number-sequence-screen';
 import { WordListScreen } from './screens/word-list-screen';
 import { PatternRecallScreen } from './screens/pattern-recall-screen';
+import { VisualMatchScreen } from './screens/visual-match-screen';
 import { ResultsScreen } from './screens/results-screen';
 import { ProgressBar } from './progress-bar';
 
@@ -70,6 +71,10 @@ export function QuizContainer({ quiz }: { quiz: QuizData }) {
       case 'pattern_recall':
         return (
             <PatternRecallScreen screen={screenData} onNext={(value) => handleNext(screenData.key, value)} />
+        );
+      case 'visual_match':
+        return (
+            <VisualMatchScreen screen={screenData} onNext={(value) => handleNext(screenData.key, value)} />
         );
       default:
         // Fallback for welcome screen or unknown types

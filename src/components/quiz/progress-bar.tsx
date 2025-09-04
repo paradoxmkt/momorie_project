@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Progress } from '@/components/ui/progress';
@@ -13,9 +14,6 @@ export function ProgressBar({ current, total }: ProgressBarProps) {
   return (
     <div className="w-full px-2">
       <Progress value={progressPercentage} className="h-2 bg-primary/20" />
-      <p className="text-sm text-muted-foreground mt-1 text-right">
-        Pergunta {current + 1} de {total}
-      </p>
     </div>
   );
 }

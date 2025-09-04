@@ -15,7 +15,7 @@ type PatternRecallScreenProps = {
 const MEMORIZE_DURATION = 7; // seconds
 
 export function PatternRecallScreen({ screen, onNext }: PatternRecallScreenProps) {
-  const [phase, setPhase] = useState<'memorize' | 'recall' | 'result'>('memorize');
+  const [phase, setPhase] = useState<'memorize' | 'recall'>('memorize');
   const [countdown, setCountdown] = useState(MEMORIZE_DURATION);
   
   const gridSize = useMemo(() => screen.data?.gridSize || 3, [screen.data]);
@@ -47,29 +47,26 @@ export function PatternRecallScreen({ screen, onNext }: PatternRecallScreenProps
   };
 
   const handleSubmit = () => {
-    setPhase('result');
-    setTimeout(() => {
-      let correctSelections = 0;
-      let incorrectSelections = 0;
-      let totalCorrectCells = 0;
+    let correctSelections = 0;
+    let incorrectSelections = 0;
+    let totalCorrectCells = 0;
 
-      for (let i = 0; i < gridSize; i++) {
-        for (let j = 0; j < gridSize; j++) {
-          if (correctPattern[i][j]) {
-            totalCorrectCells++;
-            if (userPattern[i][j]) {
-              correctSelections++;
-            }
-          } else if (userPattern[i][j] && !correctPattern[i][j]) {
-            incorrectSelections++;
+    for (let i = 0; i < gridSize; i++) {
+      for (let j = 0; j < gridSize; j++) {
+        if (correctPattern[i][j]) {
+          totalCorrectCells++;
+          if (userPattern[i][j]) {
+            correctSelections++;
           }
+        } else if (userPattern[i][j] && !correctPattern[i][j]) {
+          incorrectSelections++;
         }
       }
-      
-      const finalScore = Math.max(0, correctSelections - incorrectSelections);
+    }
+    
+    const finalScore = Math.max(0, correctSelections - incorrectSelections);
 
-      onNext({ correct: finalScore, total: totalCorrectCells });
-    }, 2000);
+    onNext({ correct: finalScore, total: totalCorrectCells });
   };
 
   const renderGrid = (pattern: boolean[][], isInteractive: boolean) => (
@@ -119,14 +116,6 @@ export function PatternRecallScreen({ screen, onNext }: PatternRecallScreenProps
           </Button>
         </>
       )}
-      
-      {phase === 'result' && (
-         <>
-            <h2 className="text-2xl md:text-3xl font-bold font-headline text-foreground mb-4">Verificando...</h2>
-            <p className="text-muted-foreground">Aguarde um momento.</p>
-         </>
-      )}
-
     </div>
   );
 }

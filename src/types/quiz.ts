@@ -5,10 +5,21 @@ export type QuizOption = {
     icon?: LucideIcon;
 };
 
+export type Shape = 'circle' | 'triangle' | 'star';
+
+export type VisualMatchData = {
+    gridSize: { rows: number; cols: number };
+    leftGrid: Shape[][];
+    rightGrid: Shape[][];
+    correctSide: 'left' | 'right';
+    memorizeDuration: number;
+};
+
+
 export type QuizScreen = {
   id: string;
   key: string;
-  type: 'welcome' | 'demographic' | 'single_choice' | 'self_assessment' | 'memory_intro' | 'color_sequence' | 'pattern_recall' | 'word_list' | 'number_sequence';
+  type: 'welcome' | 'demographic' | 'single_choice' | 'self_assessment' | 'memory_intro' | 'color_sequence' | 'pattern_recall' | 'word_list' | 'number_sequence' | 'visual_match';
   order?: number;
   title: string;
   description?: string;
@@ -21,6 +32,7 @@ export type QuizScreen = {
     all_words?: string[];
     reversed?: boolean;
     gridSize?: number;
+    visualMatch?: VisualMatchData;
   };
   buttonText?: string;
 };
