@@ -1,3 +1,4 @@
+
 'use client';
 
 import type { QuizData } from '@/types/quiz';
@@ -10,6 +11,7 @@ import { MemoryIntroScreen } from './screens/memory-intro-screen';
 import { ColorSequenceScreen } from './screens/color-sequence-screen';
 import { NumberSequenceScreen } from './screens/number-sequence-screen';
 import { WordListScreen } from './screens/word-list-screen';
+import { PatternRecallScreen } from './screens/pattern-recall-screen';
 import { ResultsScreen } from './screens/results-screen';
 import { ProgressBar } from './progress-bar';
 
@@ -64,6 +66,10 @@ export function QuizContainer({ quiz }: { quiz: QuizData }) {
       case 'word_list':
         return (
           <WordListScreen screen={screenData} onNext={(value) => handleNext(screenData.key, value)} />
+        );
+      case 'pattern_recall':
+        return (
+            <PatternRecallScreen screen={screenData} onNext={(value) => handleNext(screenData.key, value)} />
         );
       default:
         // Fallback for welcome screen or unknown types

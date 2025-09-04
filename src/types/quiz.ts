@@ -20,6 +20,7 @@ export type QuizScreen = {
     words_to_memorize?: string[];
     all_words?: string[];
     reversed?: boolean;
+    gridSize?: number;
   };
   buttonText?: string;
 };

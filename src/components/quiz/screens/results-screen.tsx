@@ -208,7 +208,7 @@ export function ResultsScreen({ answers, onReset }: ResultsScreenProps) {
 
           </div>
            <footer className="w-full text-center text-muted-foreground mt-12 border-t pt-4 text-sm">
-                <p>&copy; {new Date().getFullYear()} Desafio Mindfulness. Todos os direitos reservados.</p>
+                <p>&copy; {new Date().getFullYear()} Exercício Mental. Todos os direitos reservados.</p>
             </footer>
         </div>
       </>

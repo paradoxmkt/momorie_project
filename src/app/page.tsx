@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 const resetQuizState = () => {
   if (typeof window !== 'undefined') {
     try {
-      window.localStorage.removeItem('desafio-mindfulness-quiz-state');
+      window.localStorage.removeItem('exercicio-mental-quiz-state');
     } catch (error) {
       console.error("Failed to remove quiz state from localStorage", error);
     }

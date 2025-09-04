@@ -1,3 +1,4 @@
+
 import type { QuizData } from '@/types/quiz';
 
 export const quizData: QuizData = {
@@ -229,6 +230,32 @@ export const quizData: QuizData = {
         data: {
             words_to_memorize: ['casa', 'árvore', 'rio', 'sol', 'livro', 'lua'],
             all_words: ['gato', 'rio', 'pedra', 'lua', 'casa', 'vento', 'livro', 'mar', 'sol', 'flor', 'árvore', 'nuvem']
+        }
+    },
+    {
+        id: 'memory_test_4',
+        key: 'pattern_recall_test',
+        type: 'pattern_recall',
+        order: 27,
+        question: 'Memorize o padrão.',
+        data: {
+            gridSize: 3,
+            pattern: [
+                [false, true, false],
+                [true, true, false],
+                [false, false, true]
+            ]
+        }
+    },
+    {
+        id: 'memory_test_5',
+        key: 'color_sequence_test_reversed',
+        type: 'color_sequence',
+        order: 28,
+        question: 'Memorize a sequência de cores e recorde-a na ordem inversa.',
+        data: {
+            sequence: ['purple', 'orange', 'cyan', 'pink'],
+            reversed: true
         }
     }
   ],

@@ -4,7 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'Desafio Mindfulness - Avalie sua Clareza Mental',
+  title: 'Exercício Mental - Avalie sua Clareza Mental',
   description:
     'Faça nosso Teste de Memória e Foco para avaliar sua clareza mental, concentração e memória.',
 };
